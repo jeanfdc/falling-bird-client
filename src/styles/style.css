@@ -1,7 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
 .glow-button{
   transition: all 250ms;
 }
 
 .glow-button:hover{
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.234);
+}
+
+.glow-text{
+  transition: all 250ms;
+}
+
+.glow-text:hover{
+  text-shadow: 0 0 15px rgb(255, 255, 255);
+}
+
+.league-spartan {
+  font-family: 'League Spartan';
+}
+
+.mulish {
+  font-family: 'Mulish';
+}
+
+.raleway{
+  font-family: 'Raleway';
 }

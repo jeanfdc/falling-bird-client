@@ -1,14 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { BrowserRouter, Route } from 'react-router-dom';
+import Router from './Router';
 import './index.css';
 import './output.css';
 import './styles/style.css'
-import Login from './pages/Desktop/Login';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 
 root.render(
-  <Login/>
+  <BrowserRouter>
+    <Router/>
+  </BrowserRouter>
 );

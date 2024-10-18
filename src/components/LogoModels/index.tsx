@@ -1,4 +1,5 @@
 import React from 'react'
+import { motion } from 'framer-motion'
 
 interface LogoProps{
   model: number;
@@ -7,7 +8,11 @@ interface LogoProps{
 
 export default function Logo({model, className}: LogoProps){
   return(
-    <div>
+    <motion.div
+    initial={{opacity: 0, scale: 0.9}}
+    animate={{opacity: 1, scale: 1}}
+    transition={{duration: 0.5}}
+    >
       {model == 1 && 
         <img 
           src="https://firebasestorage.googleapis.com/v0/b/falling-bird-41c23.appspot.com/o/Logo%20Model%201.png?alt=media&token=688bace7-414a-482a-8a95-6eed8023e744" 
@@ -31,6 +36,6 @@ export default function Logo({model, className}: LogoProps){
           className={className}
         />
       }
-    </div>
+    </motion.div>
   )
 }
