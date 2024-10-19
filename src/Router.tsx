@@ -2,6 +2,8 @@ import React from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import Home from "./pages/Desktop/Home";
 import Register from "./pages/Desktop/Register";
+import Login from "./pages/Desktop/Login";
+import Chats from "./pages/Desktop/Chats";
 
 export default function Router(){
   const location = useLocation()
@@ -16,7 +18,9 @@ export default function Router(){
       <Route path="/faq" element={""}/>
       
       <Route path="/register" element={<Register/>}/>
-      <Route path="/login" element={""}/>
+      <Route path="/login" element={<Login/>}/>
+
+      <Route path="/chats" element={<Chats/>}/>
     </Routes>
   )
 }

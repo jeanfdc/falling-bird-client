@@ -2,13 +2,19 @@ import React from 'react'
 import BackgroundGradient from '../../components/BackgroundGradient'
 import Header from '../../components/Header'
 import Buttons from '../../components/ButtonsHomePage'
+import {motion} from 'framer-motion'
 
 export default function Home() {
   return (
-    <BackgroundGradient glowVar='full' className=''>
+    <BackgroundGradient glowVar='full' className='flex flex-col'>
       <Header />
 
-      <div className='flex px-[100px] py-[50px]  2xl:px-[150px] 2xl:py-[75px] place-content-between'>
+      <motion.div 
+      className='flex px-[100px] py-[50px]  2xl:px-[150px] 2xl:py-[75px] place-content-between grow'
+      initial={{opacity: 0, scale: 0.5}}
+      animate={{opacity: 1, scale: 1}}
+      transition={{duration: 0.5}}
+      >
         <div className='flex flex-col gap-y-[10px]'>
           <h1 className='text-white mulish font-black max-w-[430px] 2xl:max-w-[600px] text-[40px] 2xl:text-[60px] leading-[45px] 2xl:leading-[80px]'>
             BATE-PAPO
@@ -34,7 +40,7 @@ export default function Home() {
             alt="" />
         </div>
 
-      </div>
+      </motion.div>
       <Buttons />
     </BackgroundGradient>
   )

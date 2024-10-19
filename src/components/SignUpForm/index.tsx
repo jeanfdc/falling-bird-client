@@ -10,7 +10,7 @@ export default function SignUpForm() {
     initial={{opacity: 0, scale: 0.5}}
     animate={{opacity: 1, scale: 1}}
     transition={{ type: "tween", ease: "anticipate", duration: 1 }}
-    action="http://localhost:5000/" method="POST" 
+    action="http://localhost:5000/register" method="POST" 
     className='flex flex-col h-full pb-5'>
       <div className='grow'>
         <div className='flex flex-col gap-y-[16px] 2xl:gap-y-[25px]'>
@@ -26,7 +26,7 @@ export default function SignUpForm() {
       
       <div className='text-center flex flex-col gap-y-2'>
         <SubmitButton/>
-        <p className='self-center text-[12px] 2xl:text-[20px]'>Already registered? <span className='cursor-pointer text-cyan-400'>Login</span></p>
+        <p className='self-center text-[12px] 2xl:text-[20px]'>Already registered? <a href='/login' className='cursor-pointer text-cyan-400'>Login</a></p>
       </div>
     </motion.form>
   )
