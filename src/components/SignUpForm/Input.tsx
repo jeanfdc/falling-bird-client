@@ -1,13 +1,13 @@
 import React from 'react'
 
-interface InputProps{
+interface InputProps {
   type: string;
 }
 
-export default function Input({type}: InputProps) {
+export default function Input({ type }: InputProps) {
   return (
     <div>
-      {type == "email" && 
+      {type == "email" &&
         <div>
           <h2 className='ml-[15px] text-[15px] 2xl:text-[25px]'>Email</h2>
 
@@ -17,7 +17,7 @@ export default function Input({type}: InputProps) {
         </div>
       }
 
-      {type == "password" && 
+      {type == "password" &&
         <div>
           <h2 className='ml-[15px] text-[15px] 2xl:text-[25px]'>Password</h2>
 

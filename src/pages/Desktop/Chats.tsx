@@ -1,7 +1,68 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Logo from "../../components/LogoModels";
+import { useCookies } from "react-cookie";
+import { useNavigate } from "react-router-dom";
+import UsernameModal from "../../components/UsernameModal";
 
 export default function Chats() {
+  let navigate = useNavigate()
+  const [cookies, setCookies] = useCookies(['authToken'])
+  const [modalDisplay, setModalDisplay] = useState('hidden')
+
+  useEffect(() => {
+    const checkAccess = async () => {
+      const token = cookies.authToken
+
+      try {
+        const response = await fetch('http://localhost:5000/checkToken', {
+          method: "POST",
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `${token}`,
+          },
+        })
+
+        const data = await response.json()
+
+        if (data.canAcess == true) {
+          console.log(data.message)
+        } else {
+          navigate(data.url, { replace: true })
+        }
+
+      } catch (error) {
+        console.log(error)
+      }
+    }
+
+    const verifyNewUser = async () => {
+      const token = cookies.authToken
+
+      try {
+        const response = await fetch('http://localhost:5000/verifyNewUser', {
+          method: "POST",
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `${token}`,
+          }
+        })
+
+        const data = await response.json()
+
+        if (data.role == "newUser") {
+          console.log("You need a username...")
+          setModalDisplay('flex')
+        }
+
+      } catch (error) {
+
+      }
+    }
+
+    checkAccess()
+    verifyNewUser()
+  }, [])
+
   return (
     <div className="flex h-screen w-screen bg-[#2C2C2C]">
       {/* Tools Bar */}
@@ -25,8 +86,9 @@ export default function Chats() {
             <p className="font-regular raleway text-white/30">Envie e receba mensagens de qualquer lugar do mundo</p>
           </div>
         </div>
-
       </div>
+
+      <UsernameModal className={modalDisplay}/>
     </div>
   )
 }
